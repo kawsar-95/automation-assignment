@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "username": "standard_user",
+      "password": "secret_sauce"
+    }
+  ],
+  "sortingOptions": [
+    {
+      "option": "za",
+      "snapshot": "sorted-z-to-a-chromium-win32.png"
+    },
+    {
+      "option": "hilo",
+      "snapshot": "sorted-high-to-low-chromium-win32.png"
+    }
+  ],
+  "checkoutDetails": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "postalCode": "12345",
+    "confirmationMessage": "Thank you for your order!",
+    "snapshot": "checkout-complete-chromium-win32.png"
+  }
+}
