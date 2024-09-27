@@ -41,44 +41,6 @@ This project automates testing of the Sauce Demo web application using **Playwri
    ```
 2. **Results**: View test reports after execution. A browser window will display a detailed breakdown of passed and failed tests.
 
-### Accessibility Tests
-
-1. **Accessibility Setup**: Use the **axe-core** library, integrated with Playwright, to check for accessibility issues on the web pages.
-2. **How to Run Accessibility Tests**: Execute the following command to run accessibility tests independently:
-   i. **Headless mode**: Run the default set of accessibility tests using Axe-Playwright. Execute:
-
-   ```bash
-   npm run accessibility-test
-   ```
-
-ii. **Headed mode**: Run the default set of accessibility tests using Axe-Playwright headed mode. Execute:
-
-```bash
- npx playwright test --ui 
-```
-
-4. **Accessibility Report**: After the test run, an accessibility report is generated, highlighting any issues such as missing ARIA attributes, poor contrast ratios, or structural issues. The results are printed in the console for quick review.
-
-#### **Accessibility Tests Overview**:
-
-- **Scope**: Ensures the app is accessible to all users, including those using screen readers or other assistive technologies.
-- **Checks**: The tests evaluate accessibility standards like keyboard navigation, ARIA landmarks, and semantic HTML.
-
-### Visual Regression Tests
-
-1. **Visual Testing Setup**: Use the **jest-image-snapshot** alongside **Playwright** to conduct visual regression testing, ensuring the UI maintains consistency across updates.
-2. **How to Run Visual Tests**: Execute the visual comparison tests with:
-
-   ```bash
-   npm run visual-test
-   ```
-3. **Visual Comparison Report**: jest-image-snapshot captures screenshots of key UI elements and compares them to baseline images. Any differences will be highlighted in the report, pointing out deviations in layout, colors, or fonts.
-
-#### **Visual Test Scenarios**:
-
-- **Visual Consistency**: Ensures critical UI components (e.g., buttons, modals, product listings) remain visually unchanged after updates.
-- **Baseline Images**: Stored in the `/backstop_data/bitmaps_reference` directory, these images are used for comparison.
-- **Difference Reporting**: Highlights pixel-level differences between actual and expected UI states.
 
 ### Test Details
 
@@ -111,12 +73,6 @@ This suite tests various key functionalities of the Sauce Demo app, including lo
 
 ### Page Object Model (POM)
 
-The pages are structured in the Page Object Model as follows:
-
-- **LoginPage.js**: Manages login operations, including navigation and user authentication.
-- **InventoryPage.js**: Handles product sorting and adding items to the cart.
-- **CartPage.js**: Manages cart operations and initiates the checkout process.
-- **CheckoutPage.js**: Completes the checkout process and verifies the order confirmation message.
 
 ### Best Practices
 
