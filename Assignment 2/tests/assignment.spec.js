@@ -21,8 +21,15 @@ test.describe('SauceDemo Tests', () => {
     test(`Verify sorting order (${option})`, async ({ page }) => {
       await sauceDemoPage.selectSortingOption(option);
       const productNames = await sauceDemoPage.getProductNames();
-      const sorted = [...productNames].sort((a, b) => b.localeCompare(a));
-      expect(productNames).toEqual(sorted);
+      const productPrices = await sauceDemoPage.getProductPrices();
+
+      if (option === 'Name (Z to A)') {
+        const sortedNames = [...productNames].sort((a, b) => b.localeCompare(a));
+        expect(productNames).toEqual(sortedNames);
+      } else if (option === 'Price (high to low)') {
+        const sortedPrices = [...productPrices].sort((a, b) => b - a);
+        expect(productPrices).toEqual(sortedPrices);
+      }
 
       expect(await page.screenshot()).toMatchSnapshot(snapshot);
       const violations = await sauceDemoPage.analyzeAccessibility();
