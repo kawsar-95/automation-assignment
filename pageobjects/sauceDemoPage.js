@@ -1,4 +1,3 @@
-// sauceDemoPage.js
 const AxeBuilder = require('@axe-core/playwright').default;
 
 class SauceDemoPage {

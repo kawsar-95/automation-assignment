@@ -1,99 +1,112 @@
-# Sauce Demo App Automation
+Here’s a simple `README.md` file that outlines the steps to set up and run a Playwright test suite. You can customize it to fit your specific Playwright project.
 
-This project automates testing of the Sauce Demo web application using **Playwright**. It covers functionalities like logging in, sorting products, adding items to the cart, and completing the checkout process. Additionally, **accessibility** and **visual** testing capabilities have been integrated to ensure the app is user-friendly and visually correct across pages. The **Page Object Model (POM)** design pattern is employed for code structure.
+```md
+# Playwright Test Automation
+
+This repository contains automated tests built using [Playwright](https://playwright.dev/).
 
 ## Prerequisites
 
-- **Node.js**: Ensure that you have the latest version installed. Download it from [Node.js](https://nodejs.org/).
-- **Playwright**: The Playwright testing framework is used to automate browser actions. Learn more at [Playwright](https://playwright.dev/).
-- **IDE**: It is recommended to use **Visual Studio Code** for development.
+Before running the Playwright tests, ensure you have the following installed:
 
-## Setup Instructions
+- [Node.js](https://nodejs.org/en/) (v12.0.0 or later)
+- [npm](https://www.npmjs.com/) (comes with Node.js)
 
-1. **Clone this repository** using your preferred command line tool:
+## Getting Started
 
-   ```bash
-   git clone <repository-url>
-   cd Sauce-Demo-App-Automation
-   ```
-2. **Install dependencies** and Playwright:
+Follow these steps to install dependencies and run the Playwright tests.
 
-   ```bash
-   npm install
-   npm install @playwright/test
-   ```
+### 1. Clone the repository
 
-## Running Tests
+```bash
+git clone https://github.com/kawsar-95/automation-assignment.git
+cd <repository-directory>
+```
 
-### Functional Tests
+### 2. Install dependencies
 
-1. **Test Execution**:
-   i. **Headless mode**: Run the default set of functional tests using Playwright. Execute:
+Run the following command to install the required dependencies:
 
-   ```bash
-   npm run sauce-demo-test
-   ```
+```bash
+npm install
+```
 
-   ii. **Headed mode**: Run the default set of functional tests using Playwright headed mode. Execute:
+### 3. Install Playwright Browsers
 
-   ```bash
-    npx playwright test --ui 
-   ```
-2. **Results**: View test reports after execution. A browser window will display a detailed breakdown of passed and failed tests.
+Playwright comes with its own set of browsers. To install them, use:
 
+```bash
+npx playwright install
+```
 
-### Test Details
+### 4. Run Playwright Tests
 
-#### Overview
+To run all Playwright tests, execute the following command:
 
-This suite tests various key functionalities of the Sauce Demo app, including logging in, sorting products, adding items to the cart, and checking out. The **Page Object Model (POM)** is used to organize test scripts for maintainability.
+```bash
+npx playwright test --ui
+```
 
-- **Login Test**: Verifies user authentication functionality.
-- **Inventory Sorting**: Ensures products can be sorted by name (Z-A) and price (high to low).
-- **Cart Management**: Adds multiple products to the cart and verifies the cart contents.
-- **Checkout Process**: Completes the checkout process and validates order confirmation.
+### 5. Run a Specific Test File
 
-#### Test Scenarios
+To run a specific test, you can specify the file path like this:
 
-##### **Login Test**:
+```bash
+npx playwright test tests/example.spec.js
+```
 
-- Fills in login credentials and asserts that the user is logged in successfully.
+### 6. View Test Report
 
-##### **Sorting Tests**:
+Playwright generates a test report that you can view in your browser. After running the tests, open the HTML report using:
 
-- Verifies that products are sorted correctly by name (Z-A) and by price (high to low).
+```bash
+npx playwright show-report
+```
 
-##### **Cart Test**:
+### 7. Debug Mode
 
-- Adds multiple items to the cart and verifies that all items are correctly listed in the cart.
+You can run tests in headed mode (with the browser UI) for debugging:
 
-##### **Checkout Test**:
+```bash
+npx playwright test --headed
+```
 
-- Completes the checkout process and confirms that the correct order confirmation message is displayed.
+### 8. Running Tests with Trace Viewer
 
-### Page Object Model (POM)
+To enable tracing for debugging purposes:
 
+```bash
+npx playwright test --trace on
+```
 
-### Best Practices
+After running tests with traces, open the trace viewer using:
 
-- **Page Object Model (POM)**: This design pattern enhances test maintainability and readability by separating page-specific actions into dedicated classes.
-- **Separation of Concerns**: Tests focus on a single piece of functionality, making them easier to understand, debug, and maintain.
-- **Reusability**: Common actions, such as logging in and sorting products, are encapsulated in reusable methods within their respective page classes.
-- **Accessibility Testing**: Ensure that the app complies with accessibility standards, making it usable for all users.
-- **Visual Regression Testing**: Incorporate visual regression testing to validate that the app's visual elements remain consistent and that no unintended UI changes occur.
+```bash
+npx playwright show-trace <trace-file>
+```
 
-## Reporting
+## Folder Structure
 
-- **Functional Tests**: Playwright generates a detailed report after test execution. View it by running:
+```bash
+.
+├── tests/                # Test files go here
+│   └── assignment.spec.js   # Example test file
+    └── assignment.spec.js-snapshots # contains snapshots of visual tests
+├── playwright.config.js  # Playwright configuration file
+└── README.md             # This file
+```
 
-  ```bash
-  npx playwright show-report
-  ```
-- **Accessibility Report**: Accessibility issues will be highlighted directly in the console output.
-- **Visual Report**: View the differences between baseline and actual images in the `/backstop_data/html` folder, generated by jest-image-snapshot.
+## Learn More
 
----
+For more information on Playwright, visit the official [documentation](https://playwright.dev/docs/intro).
 
-## NB
+```
 
-This README provides a comprehensive guide for setting up and running the Sauce Demo App automation project, including functional, accessibility, and visual tests using Playwright and jest-image-snapshot.
+### Key Sections:
+1. **Prerequisites:** Basic tools required to run the Playwright tests.
+2. **Installation and Running Tests:** Commands for setup, installation, and running tests.
+3. **Running Specific Tests, Reports, and Debugging:** Instructions to run specific tests, view reports, and debug.
+4. **Folder Structure:** Outline of your project structure to help navigate through files.
+
+You can adjust this `README.md` based on your specific project setup and any additional dependencies you might be using.
+```
