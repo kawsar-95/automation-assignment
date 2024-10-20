@@ -1,8 +1,6 @@
 const { test, expect } = require('@playwright/test');
-const { toMatchImageSnapshot } = require('jest-image-snapshot');
 const { SauceDemoPage } = require('../pageobjects/sauceDemoPage');
 const testData = require('../utils/testData');
-
 
 const USERNAME = process.env.SAUCEDEMO_USERNAME || testData.users[0].username;
 const PASSWORD = process.env.SAUCEDEMO_PASSWORD || testData.users[0].password;
@@ -23,10 +21,7 @@ test.describe('SauceDemo Tests', () => {
     expect(productNames).toEqual(sortedNames);
     await page.waitForTimeout(1000); // Wait for 1 second before taking the screenshot
 
-    const screenshot = await page.screenshot();
-    expect(screenshot).toMatchSnapshot({
-      name: 'SauceDemo-Tests-Verify-sorting-order-for-Z-A-1-chromium-win32.png',
-    });
+    await expect(page).toHaveScreenshot('screenshot-za.png');
 
     const violations = await sauceDemoPage.analyzeAccessibility();
     expect(violations).toBeGreaterThanOrEqual(0);
@@ -39,10 +34,7 @@ test.describe('SauceDemo Tests', () => {
     expect(productPrices).toEqual(sortedPrices);
     await page.waitForTimeout(1000); // Wait for 1 second before taking the screenshot
 
-    const screenshot = await page.screenshot();
-    expect(screenshot).toMatchSnapshot({
-      name: 'SauceDemo-Tests-Verify-price-order-for-high-low-1-chromium-win32.png',
-    });
+    await expect(page).toHaveScreenshot('screenshot-hilo.png');
 
     const violations = await sauceDemoPage.analyzeAccessibility();
     expect(violations).toBeGreaterThanOrEqual(0);
@@ -60,10 +52,7 @@ test.describe('SauceDemo Tests', () => {
     const confirmationMessage = await sauceDemoPage.getConfirmationMessage();
     expect(confirmationMessage).toBe(testData.checkoutDetails.confirmationMessage);
 
-    const screenshot = await page.screenshot();
-    expect(screenshot).toMatchSnapshot({
-      name: 'SauceDemo-Tests-Add-multiple-items-to-cart-and-validate-checkout-journey-1-chromium-win32.png',
-    });
+    await expect(page).toHaveScreenshot('screenshot-checkout.png');
 
     const violations = await sauceDemoPage.analyzeAccessibility();
     expect(violations).toBeGreaterThanOrEqual(0);
