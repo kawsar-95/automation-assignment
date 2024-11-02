@@ -2,8 +2,14 @@
   "name": "assignment",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
-  "keywords": [],
+  "scripts": {
+    "test": "npx playwright test",
+    "test:ui": "npx playwright test --ui",
+    "test:chromium": "npx playwright test --project=chromium",
+    "test:file": "npx playwright test example",
+    "test:debug": "npx playwright test --debug",
+    "codegen": "npx playwright codegen"
+  },  "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
