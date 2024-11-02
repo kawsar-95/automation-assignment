@@ -1,6 +1,3 @@
-Here’s a simple `README.md` file that outlines the steps to set up and run a Playwright test suite. You can customize it to fit your specific Playwright project.
-
-```md
 # Playwright Test Automation
 
 This repository contains automated tests built using [Playwright](https://playwright.dev/).
@@ -44,7 +41,7 @@ npx playwright install
 To run all Playwright tests, execute the following command:
 
 ```bash
-npx playwright test --ui
+npm test
 ```
 
 ### 5. Run a Specific Test File
@@ -52,7 +49,7 @@ npx playwright test --ui
 To run a specific test, you can specify the file path like this:
 
 ```bash
-npx playwright test tests/example.spec.js
+npx playwright test tests/assignment.spec.js
 ```
 
 ### 6. View Test Report
@@ -89,24 +86,31 @@ npx playwright show-trace <trace-file>
 
 ```bash
 .
-├── tests/                # Test files go here
-│   └── assignment.spec.js   # Example test file
-    └── assignment.spec.js-snapshots # contains snapshots of visual tests
-├── playwright.config.js  # Playwright configuration file
-└── README.md             # This file
+├── .github/                   # GitHub Actions workflows
+│   └── workflows/
+├── ManualTesting/             # Manual testing documents
+├── node_modules/              # Node.js modules
+├── pageobjects/               # Page Object Models
+│   └── sauceDemoPage.js
+├── playwright-report/         # Playwright test reports
+├── test-results/              # Test results
+├── tests/                     # Test files
+│   └── assignment.spec.js
+│   └── assignment.spec.js-snapshots
+├── utils/                     # Utility files
+├── .gitignore                 # Git ignore file
+├── package.json               # Node.js dependencies and scripts
+├── playwright.config.js       # Playwright configuration file
+└── README.md                  # This file
 ```
 
-## Learn More
+## Key Sections
 
-For more information on Playwright, visit the official [documentation](https://playwright.dev/docs/intro).
-
-```
-
-### Key Sections:
 1. **Prerequisites:** Basic tools required to run the Playwright tests.
 2. **Installation and Running Tests:** Commands for setup, installation, and running tests.
 3. **Running Specific Tests, Reports, and Debugging:** Instructions to run specific tests, view reports, and debug.
 4. **Folder Structure:** Outline of your project structure to help navigate through files.
 
-You can adjust this `README.md` based on your specific project setup and any additional dependencies you might be using.
-```
+## Learn More
+
+For more information on Playwright, visit the official [documentation](https://playwright.dev/docs/intro).
