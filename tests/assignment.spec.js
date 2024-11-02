@@ -1,6 +1,6 @@
-const { test, expect } = require('@playwright/test');
-const { SauceDemoPage } = require('../pageobjects/sauceDemoPage');
-const testData = require('../utils/testData');
+import { test, expect } from '@playwright/test';
+import { SauceDemoPage } from '../pageobjects/sauceDemoPage';
+import testData from '../utils/testData.json';
 
 const USERNAME = process.env.SAUCEDEMO_USERNAME || testData.users[0].username;
 const PASSWORD = process.env.SAUCEDEMO_PASSWORD || testData.users[0].password;
